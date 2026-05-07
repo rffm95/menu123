@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&family=Oswald:wght@400;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Montserrat", ui-sans-serif, system-ui, sans-serif;
+  --font-sport: "Oswald", sans-serif;
+  
+  --color-heineken: #008200;
+  --color-heineken-light: #00A651;
+  --color-jd-gold: #D4AF37;
+  --color-jd-black: #0D0D0D;
+}
+
+@layer base {
+  body {
+    @apply bg-jd-black text-white font-sans antialiased;
+    background-image: 
+      radial-gradient(circle at 50% 0%, rgba(0, 130, 0, 0.15) 0%, transparent 70%),
+      linear-gradient(to bottom, transparent 0%, #050505 100%);
+    background-attachment: fixed;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/[0.03] border border-white/5 backdrop-blur-sm transition-all duration-300;
+  }
+  
+  .glass-card:hover {
+    @apply bg-white/[0.06] border-heineken/30;
+  }
+
+  .sport-border {
+    @apply border-l-4 border-heineken;
+  }
+  
+  .gold-text {
+    @apply text-jd-gold font-bold uppercase tracking-widest;
+  }
+  
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .stats-badge {
+    @apply bg-heineken/20 text-heineken-light border border-heineken/30 px-2 py-0.5 rounded text-[10px] font-bold uppercase;
+  }
+}
+
